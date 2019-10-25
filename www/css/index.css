@@ -1,3 +1,27 @@
 body{
     background-color: rgb(245, 8, 8);
+    
+}
+
+#aparecer{
+	position: relative;
+	height: 600px;
+	width: 800px;
+	margin: 0px auto;
+	margin-top: 20px;
+	border-radius: 20px;
+}
+
+#f0,#f1,#f2,#f3,#f4,#f5,#f6,#f7,#f8,#f9{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	border: 5px solid #FFF;
+	box-shadow: 5px 5px 10px #555;
+}
+
+.pic{
+	width: 300px;
+	height: 300px;
+	display: none;
 }

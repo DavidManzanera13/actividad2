@@ -90,13 +90,13 @@ var firebaseConfig = {
     agregaBasedeDatos : function(){
         var db = firebase.firestore(); 
 
-        db.collection("Alumnos").add({
+        db.collection("Hospital").add({
             id : document.getElementById("id").value,
-            Nombre : document.getElementById("nombre").value,
-            Clase : document.getElementById("clase").value,
-            Semestre : document.getElementById("semestre").value,
-            Calificacion : document.getElementById("calificacion").value,
-            Aula : new firebase.firestore.GeoPoint(parseFloat(document.getElementById("lat").value), parseFloat(document.getElementById("long").value))
+            Nombre : document.getElementById("Nombre").value,
+            Enfermedad : document.getElementById("Enfermedad").value,
+            NumeroHabitacion : document.getElementById("Numero de Habitacion").value,
+            Horadellegada : document.getElementById("Hora de llegada").value,
+            LocalizacionHospital : new firebase.firestore.GeoPoint(parseFloat(document.getElementById("lat").value), parseFloat(document.getElementById("long").value))
         })
         .then(function(docRef) {
             console.log("Document written with ID: ", docRef.id);
@@ -112,18 +112,18 @@ var firebaseConfig = {
     leerBasedeDatos : function(){
         var db = firebase.firestore();
 
-        db.collection("Alumnos").where("Nombre", "==", document.getElementById("nombre").value)
+        db.collection("Hospital").where("Nombre", "==", document.getElementById("nombre").value)
         .get()
         .then(function(querySnapshot) {
             
             querySnapshot.forEach(function(doc) {
                 document.getElementById("id").value = doc.data().id;
-                document.getElementById("nombre").value = doc.data().Nombre;
-                document.getElementById("semestre").value = doc.data().Semestre;
-                document.getElementById("clase").value = doc.data().Clase;
-                document.getElementById("calificacion").value = doc.data().Calificacion;
-                document.getElementById("lat").value = doc.data().Aula.latitude;
-                document.getElementById("long").value = doc.data().Aula.longitude;
+                document.getElementById("Nombre").value = doc.data().Nombre;
+                document.getElementById("Numero de habitacion").value = doc.data().NumerodeHabitacion;
+                document.getElementById("Enfermedad").value = doc.data().Enfermedad;
+                document.getElementById("Hora de llegada").value = doc.data().Horadellegada;
+                document.getElementById("lat").value = doc.data().LocalizacionHospital.latitude;
+                document.getElementById("long").value = doc.data().LocalizacionHospital.longitude;
                 console.log(doc.id, " => ", doc.data());
             });
         })
@@ -135,7 +135,7 @@ var firebaseConfig = {
     borrarBasedeDatos: function(){
         var db = firebase.firestore();
 
-        db.collection("Alumnos").where("Nombre", "==", document.getElementById("nombre").value)
+        db.collection("Hospital").where("Nombre", "==", document.getElementById("nombre").value)
         .get()
             .then(function(querySnapshot) {
             
@@ -157,17 +157,17 @@ var firebaseConfig = {
     actualizaBasedeDatos : function(){
         var db = firebase.firestore();
         
-        db.collection("Alumnos").where("Nombre", "==", document.getElementById("nombre").value)
+        db.collection("Hospital").where("Nombre", "==", document.getElementById("nombre").value)
         .get()
             .then(function(querySnapshot) {
                 querySnapshot.forEach(function(doc) {
                     doc.ref.update({
                         id : document.getElementById("id").value,
-                        Nombre : document.getElementById("nombre").value,
-                        Clase : document.getElementById("clase").value,
-                        Semestre : document.getElementById("semestre").value,
-                        Calificacion : document.getElementById("calificacion").value,
-                        Aula : new firebase.firestore.GeoPoint(parseFloat(document.getElementById("lat").value), parseFloat(document.getElementById("long").value)) 
+                        Nombre : document.getElementById("Nombre").value,
+                        Enfermedad : document.getElementById("Enfermedad").value,
+                        NumeroHabitacion : document.getElementById("Numero de habitacion").value,
+                        Horadellegada : document.getElementById("Hora de llegada").value,
+                        LocalizacionHospital : new firebase.firestore.GeoPoint(parseFloat(document.getElementById("lat").value), parseFloat(document.getElementById("long").value)) 
                          
                         
 
@@ -192,7 +192,7 @@ var firebaseConfig = {
         var db = firebase.firestore();
   
 
-        db.collection("Alumnos").where("Clase", "==", "Comercio Electronico ")
+        db.collection("Hospital").where("Enfermedad", "==", "SIDA")
         .get()
             .then(function(querySnapshot) {
             
@@ -203,7 +203,7 @@ var firebaseConfig = {
                         fillOpacity: 0.5,
                         radius: 5
                     }).addTo(Mapa);
-                    circle.bindPopup("Comercio Electronico");
+                    circle.bindPopup("SIDA");
                 doc.ref.get()
                 .then(() => {
                     console.log("Encontro el Geopoint");
@@ -282,9 +282,9 @@ function actualizar(){
 function limpiar(){
     document.getElementById("id").value = "";
     document.getElementById("nombre").value = "";
-    document.getElementById("semestre").value = "";
-    document.getElementById("clase").value = "";
-    document.getElementById("calificacion").value = "";
+    document.getElementById("Numero de habitacion").value = "";
+    document.getElementById("Enfermedad").value = "";
+    document.getElementById("Hora de llegada").value = "";
     document.getElementById("lat").value = "";
     document.getElementById("long").value = "";
     
@@ -298,5 +298,9 @@ if('addEventListener' in document){
     app.dispositivoListo();
 }, false);
 
+
+
 }
+
+
 

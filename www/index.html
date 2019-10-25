@@ -3,17 +3,18 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-        <title>Conexion</title>
+        <title>Hospital</title>
         <link rel="stylesheet" href="css/index.css">
         <link rel="stylesheet" href="css/materialize.min.css">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/leaflet.css">
     </head>
     <body>
         <header>
+            <h1>BIENVENIDOS AL REGISTRO DEL HOSPITAL</h1>
             <div id="menu" class="menu" style="height: 100vh;">
-                <button class="btn btn-outline-success" onclick="Registro()">Registro</button>
-                <button class="btn waves-effect waves-light" type="submit" onclick="Login()">Login</button>
+                <button class="waves-effect waves-light btn-small" onclick="Registro()">Registro</button>
+                <button class="waves-effect waves-light btn-small" type="submit" onclick="Login()">Login</button>
+                <div id="aparecer"></div>
                 
             </div>
     
@@ -34,11 +35,11 @@
                     <button class="blue btn" onclick="cerrar()">Salir</button>
                 </div>   
                     <div class="">
-                        <input type="number" id="id" placeholder="Id">
-                        <input type="text" id="nombre" placeholder="Nombre">
-                        <input type="number" id="semestre" placeholder="Semestre">
-                        <input type="text"  id="clase" placeholder="Clase">
-                        <input type="number" id="calificacion" placeholder="Calificacion">
+                        <input type="number" id="id" placeholder="id">
+                        <input type="text" id="Nombre" placeholder="Nombre">
+                        <input type="number" id="Numero de Habitacion" placeholder="Numero de Habitacion">
+                        <input type="text"  id="Enfermedad" placeholder="Enfermedad">
+                        <input type="number" id="Hora de llegada" placeholder="Hora de llegada">
                         <input type="number" id="lat" placeholder="Latitud">
                         <input type="number" id="long" placeholder="Longitud">
 
@@ -56,7 +57,8 @@
                 </div>
         </header>
 
-        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/cordova.js"></script>
+        <script type="text/javascript" src="js/jquery/jquery-3.4.1.js"></script>
         <script src="js/fastclick.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-analytics.js"></script>
@@ -64,6 +66,7 @@
         <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-firestore.js"></script>
         <script src="js/leaflet.js"></script>
         <script src="js/index.js"></script>
+        <script type="text/javascript" src="js/aparece.js"></script>
         <script src="js/materialize.min.js"></script>
     </body>
 </html>
